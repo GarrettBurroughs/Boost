@@ -12,16 +12,15 @@ let myJson = [
         title: "Call of Overwatch: Black Ops 4",
         channelName: "MyMisterFruit",
         videoLink: '<iframe width="400" height="250" src="https://www.youtube.com/embed/VEm7Zv_ssls" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-        channelImg: 'https://yt3.ggpht.com/-jT2wxmJeigM/AAAAAAAAAAI/AAAAAAAAAAA/NI11nFicqS4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg',
-        subscriberCount: "890,000"
-    },
+        channelImg: 'https://yt3.ggpht.com/-jT2wxmJeigM/AAAAAAAAAAI/AAAAAAAAAAA/NI11nFicqS4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg'
+        },
     {
         id: 3,
         title: "so i got eliminated by a mobile player...",
         channelName: "MrMuselk",
         videoLink: '<iframe width="400" height="250" src="https://www.youtube.com/embed/vpPin9hkZbE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-        channelImg: 'https://yt3.ggpht.com/-iWlz7dePNz0/AAAAAAAAAAI/AAAAAAAAAAA/smtPKh-RLTU/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg',
-        subscriberCount: "890,000,000"
+        channelImg: 'https://yt3.ggpht.com/-iWlz7dePNz0/AAAAAAAAAAI/AAAAAAAAAAA/smtPKh-RLTU/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg'
+        
     }
 ]
 
@@ -65,7 +64,7 @@ function looks(){
         boostButton.innerHTML = "" + boostCount;
         let bounceButton = document.createElement("button");
         let subscribeButton = document.createElement("button");
-        let subscriberCount = myJson[i].subscriberCount;
+        
         let redirectButton = document.createElement("button");
         boostButton.onclick = function(){
             db.boost(myJson[i].channelName);

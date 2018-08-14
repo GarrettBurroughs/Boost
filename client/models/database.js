@@ -24,16 +24,32 @@ class Database{
     }
 
     boost(user){
-
+        
     }
 
     like(id){
         
     }
 
-    uploadClip(){
-        this.database.ref('users/' + userId + "/clips").set({
-            
-        });
+    async uploadClip(userId, title, channelName, videoLink, startTime){
+        let clipCount = await this.database.ref('data/').once('value');
+        clipCount = clipCount.val().clips;
+        console.log(clipCount);
+        this.database.ref('data/').set(
+            {clips: clipCount + 1}
+        );
+        let clip = {
+            "id": 3,
+            "title": title,
+            "channelName": channelName,
+            "videoLink": videoLink,
+            "channelImg": "img",
+            "startTime": startTime  
+        }
+        const clipKey = this.database.ref().child('clips').push().key;
+        let updates = {};
+        updates['clips/' + clipKey] = clip;
+        updates['users/' + userId + '/' + clipKey] = clip;
+        this.database.ref().update(updates);
     }
 }
