@@ -1,3 +1,13 @@
-.nice{
-display: 
-}   
+#grid {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.content {
+    margin-bottom:20px;
+}
+
+.channelImage {
+    height: 30px;
+    width: 30px;
+}

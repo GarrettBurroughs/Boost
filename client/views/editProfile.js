@@ -15,10 +15,6 @@ class EditProfileView{
         this.editBio.type = "url";
         this.editBio.placeholder = "paste your youtube URL here"
 
-        this.editProfilePic = document.createElement("input");
-        this.editProfilePic.type = "file";
-        this.editProfilePic.accept = "image/png, image/jpeg"
-
         this.confirm = document.createElement("button");
         this.confirm.innerHTML = "Save Changes";
 
@@ -31,7 +27,6 @@ class EditProfileView{
         this.div.innerHTML += "Bio: ";
         this.div.appendChild(this.editYoutube);
         this.div.appendChild(document.createElement("br"));
-        this.div.appendChild(this.editProfilePic);
         this.div.appendChild(this.confirm);
 
         this.submitAction;
@@ -52,9 +47,7 @@ class EditProfileView{
             this.submitAction(
                 this.editYoutube.value,
                 this.editTwitch.value,
-                this.editBio.value,
-                this.editProfilePic.value
-            );
+                this.editBio.value            );
         }catch(e){
             alert(e);
         }

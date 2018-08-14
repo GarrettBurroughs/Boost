@@ -4,3 +4,6 @@ accountCreation.render();
 
 let edit = new EditProfileView();
 body.appendChild(edit.getDiv());
+
+let upload = new UploadView();
+body.appendChild(upload.getDiv);

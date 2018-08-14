@@ -18,7 +18,22 @@ class Database{
                 "youtube": "",
                 "boosts": 0,
                 "Bio" : "No Bio Set"
-            }
+            },
+            "clips" : []
+        });
+    }
+
+    boost(user){
+
+    }
+
+    like(id){
+        
+    }
+
+    uploadClip(){
+        this.database.ref('users/' + userId + "/clips").set({
+            
         });
     }
 }
