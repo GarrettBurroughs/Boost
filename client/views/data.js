@@ -35,6 +35,20 @@ for (i=0; i<myJson.length; i++){
     deets.appendChild(deetsText);         
     let title = document.createElement("h3");
     title.innerHTML = myJson[i].title;   
+    deetsText.appendChild(title);
+    let chaName = document.createElement("p");
+    chaName.innerHTML = myJson[i].channelName;
+    deetsText.appendChild(chaName);
+    let buttons = document.createElement("div");
+    content.appendChild(buttons);
+    let boostButton = document.createElement("button");
+    let bounceButton = document.createElement("button");
+    let subscribeButton = document.createElement("button");
+    let redirectButton = document.createElement("button");
+    buttons.appendChild(boostButton);
+    buttons.appendChild(bounceButton);
+    buttons.appendChild(subscribeButton);
+    buttons.appendChild(redirectButton);
        
             
     /* let content = document.createElement("div");
@@ -50,12 +64,10 @@ for (i=0; i<myJson.length; i++){
     let badVibes = document.createElement("img");
     let dislikes = document.createElement("button");
     dislikes.innerHTML = "0"; */
-/*FOR GARRETT TO WORK ON CUZ THIS ALL ON HIS COMPUTER, goodVibes AND badVibes NEED IMG SOUCRING. THEY WILL BE, RESPECTFULLY, THE IMAGE FOR THE BOOSTS(LIKES) AND THE IMAGE FOR THE DISLIKES*/
-deets.appendChild(goodVibes);
-deets.appendChild(boosts);
-deets.appendChild(badVibes);
-deets.appendChild(dislikes);
+//FOR GARRETT TO WORK ON CUZ THIS ALL ON HIS COMPUTER, goodVibes AND badVibes NEED IMG SOUCRING. THEY WILL BE, RESPECTFULLY, THE IMAGE FOR THE BOOSTS(LIKES) AND THE IMAGE FOR THE DISLIKES
+// deets.appendChild(goodVibes);
+//deets.appendChild(boosts);
+//deets.appendChild(badVibes);
+//deets.appendChild(dislikes);
 
-page.appendChild(video1);
-    }    
-}
+//page.appendChild(video1);
