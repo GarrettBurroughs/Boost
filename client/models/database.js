@@ -23,8 +23,19 @@ class Database{
         });
     }
 
-    boost(user){
-        
+    async boost(userId){
+        let userData = await this.database.ref("users/" + userId).once("value");
+        console.log(userData);
+        let json = userData.val();
+        console.log(json);
+        json.userInfo.boosts++;
+        this.database.ref("users/" + userId + userInfo).set(json);
+    }
+
+    async getBoosts(userId){
+        let userData = await this.database.ref("users/" + userId).once("value");
+        let json = userData.val();
+        return json.userInfo.boosts;
     }
 
     like(id){

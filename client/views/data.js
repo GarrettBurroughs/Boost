@@ -2,23 +2,34 @@ let myJson = [
     {
         id: 1,
         title: "The Pedestrian but he's stuck in the sign",
-        channelName: "MyMisterFruit",
-        videoLink: '<iframe width="400" height="250" src="https://www.youtube.com/embed/eS9xN8k9VEc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+        channelId: "MyMisterFruit",
+        channelName: "Mr. Fruit",
+        videoLink: '<iframe width="300" height="250" src="https://www.youtube.com/embed/eS9xN8k9VEc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
         channelImg: 'https://yt3.ggpht.com/-jT2wxmJeigM/AAAAAAAAAAI/AAAAAAAAAAA/NI11nFicqS4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg'
     },
     {
         id: 2,
         title: "Call of Overwatch: Black Ops 4",
-        channelName: "MyMisterFruit",
-        videoLink: '<iframe width="400" height="250" src="https://www.youtube.com/embed/VEm7Zv_ssls" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+        channelId: "MyMisterFruit",
+        channelName: "Mr. Fruit",
+        videoLink: '<iframe width="300" height="250" src="https://www.youtube.com/embed/VEm7Zv_ssls" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
         channelImg: 'https://yt3.ggpht.com/-jT2wxmJeigM/AAAAAAAAAAI/AAAAAAAAAAA/NI11nFicqS4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg'
     },
     {
         id: 3,
         title: "so i got eliminated by a mobile player...",
-        channelName: "MrMuselk",
-        videoLink: '<iframe width="400" height="250" src="https://www.youtube.com/embed/vpPin9hkZbE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+        channelId: "MrMuselk",
+        channelName: "Muselk",
+        videoLink: '<iframe width="300" height="250" src="https://www.youtube.com/embed/vpPin9hkZbE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
         channelImg: 'https://yt3.ggpht.com/-iWlz7dePNz0/AAAAAAAAAAI/AAAAAAAAAAA/smtPKh-RLTU/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg'
+    },
+    {
+        id: 4,
+        title: "10 minutes of medium rare vines that cured my eczema",
+        channelId: "UC_HbeJEg3nsg0mscQ9Opkrg",
+        channelName: "lily levis",
+        videoLink: '<iframe width="300" height="250" src="https://www.youtube.com/embed/Q27Ydr5BuYs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+        channelImg: 'https://yt3.ggpht.com/-xpcnqCNlX0s/AAAAAAAAAAI/AAAAAAAAAAA/oSgQGuqd3Po/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg'
     }
 ]
 
@@ -75,30 +86,36 @@ function looks(){
                 //buttons
                 let buttons = document.createElement("div");
                 content.appendChild(buttons);
+                buttons.className = "buttons"
                     
                     //Boost Button
                     let boostButton = document.createElement("button");
-                    let boostCount = 0;
-                    boostButton.innerHTML = "" + boostCount;
-                    boostButton.className = "boostButton", "allButtons"
+                    boostButton.innerHTML = db.getBoosts(myJson[i].userId);
+                    boostButton.className = "boostButton", "allButtons";
+                    boostButton.onclick = function(){
+                        db.boost(myJson[i].userId);
+                    }; 
 
                     //Bounce Button
                     let bounceButton = document.createElement("button");
                     bounceButton.className = "bounceButton", "allButtons"
                     
                     //Subscribe Button
-                    let subscribeButton = document.createElement("button");
+                    console.log("Creating sub butt")
+                    let subscribeButton = document.createElement("div");
                     let subscriberCount = myJson[i].subscriberCount;
-                    subscribeButton.className = "subscribButton", "allButtons"
-                    
+                    subscribeButton.className = "g-ytsubscribe", "allButtons";
+                    console.log(subscribeButton)
+                    if(myJson[i].channelId.length <= 20){
+                        subscribeButton.setAttribute("data-channel",myJson[i].channelId)
+                    }else{
+                        subscribeButton.setAttribute("data-channelid",myJson[i].channelId)
+                    }
+                    console.log(subscribeButton)
                     //Redirect Button
                     let redirectButton = document.createElement("button");
                     redirectButton.className = "redirectButton", "allButtons"
-                    boostButton.onclick = function(){
-                        db.boost(myJson[i].channelName);
-                        let ref = database.ref("userInfo/boosts")
-                    };
-                    
+                                        
                     buttons.appendChild(boostButton);
                     buttons.appendChild(bounceButton);
                     buttons.appendChild(subscribeButton);
