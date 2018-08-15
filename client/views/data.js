@@ -22,7 +22,10 @@ let myJson = [
     }
 ]
 
+
 let db = new Database();
+myJson = db.getClips();
+
 
 function looks(){
     let grid = document.getElementById("vidGrid");
