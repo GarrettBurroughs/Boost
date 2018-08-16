@@ -4,7 +4,8 @@ class UploadController{
         this.database = new Database();
 
         this.uploadView.setUploadAction((id, startTime, title) => {
-            let embed = '<iframe width="300" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+            let end = parseInt(startTime) + 30;
+            let embed = '<iframe width="300" height="250" src="https://www.youtube.com/embed/' + id + '?start=' + startTime + '?end=' + end + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
             // if(!USER_CHANNEL) throw "User youtube channel not defined"
             // if(!LOGGED_IN) throw "Not logged in!"
             this.database.uploadClip(USER_LOGIN, title, USER_CHANNEL, embed, startTime, USER_IMG);
@@ -19,6 +20,7 @@ class UploadController{
     }
 
     unRender(){
+        console.log("upload Deleted");
         this.uploadView.getDiv().remove();
     }
 }

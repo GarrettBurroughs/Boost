@@ -9,7 +9,7 @@ class UploadView{
         this.startTime.placeholder = "Start Time";
         
         this.title = document.createElement("input");
-        this.title.class = "upload-input";
+        this.title.class = "upload-input";  
         this.title.placeholder = "title";
 
         this.uploadButton = document.createElement("button");
@@ -18,6 +18,7 @@ class UploadView{
 
 
         this.div = document.createElement("div");
+        this.div.id = "uploadDiv"
         this.div.appendChild(this.link);
         this.div.appendChild(document.createElement("br"));
         this.div.appendChild(this.startTime);

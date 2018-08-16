@@ -36,7 +36,7 @@ let myJson = [
 
 let db = new Database();
 console.log(myJson);
-looks();
+// looks();
 db.getClips().then((d) => {
     myJson = d;
     looks();
@@ -49,6 +49,7 @@ let createDiv = document.createElement("div");
 document.querySelector('body').appendChild(createDiv);
 
 signIn.onclick = function(){
+    unRenderEverything();
     createDiv.id = "accountSetup";
     accountCreation.render(createDiv);
     login.render(createDiv);
@@ -118,8 +119,13 @@ async function looks(){
                         boostButton.innerHTML = d;
                     });
                     boostButton.className = "boostButton", "allButtons";
+                    boostButton.id = myJson[i].channelName;
                     boostButton.onclick = function(){
-                        db.boost(myJson[i].userId);
+                        console.log(boostButton.classList);
+                        db.boost(boostButton.id);
+                        db.getBoosts(boostButton.id).then((d) => {
+                            boostButton.innerHTML = d;
+                        });
                     }; 
 
                     //Bounce Button
@@ -175,5 +181,6 @@ async function looks(){
     }
     gapi.ytsubscribe.go(grid);
 }
+
 
 //looks();

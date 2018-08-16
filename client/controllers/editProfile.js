@@ -12,6 +12,10 @@ class EditProfileController{
             let img = document.getElementById("profilePic");
             console.log(profileImg);
             img.src = profileImg; 
+            alert("info updated");
+            unRenderEverything();
+            let videoGrid = document.getElementById("vidGrid");
+            videoGrid.style.display = "flex";
         });
     }
 
@@ -20,6 +24,7 @@ class EditProfileController{
     }
 
     unRender(){
+        console.log("edit Deleted");
         this.editView.getDiv().remove();
     }
 }

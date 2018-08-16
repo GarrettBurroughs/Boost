@@ -36,6 +36,7 @@ class LoginController {
     }
 
     unRender(){
+        console.log("login Deleted");
         this.loginView.getDiv().remove();
     }
 }

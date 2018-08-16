@@ -25,6 +25,15 @@ class Database{
         });
     }
 
+    async boost(user){
+        let boosts = await this.database.ref('users/' + user).once('value');
+        boosts = boosts.val().boosts;
+        console.log(boosts);
+        this.database.ref('users/' + user).set(
+            {"boosts": boosts + 1}
+        );
+    }
+
     updateInfo(userId, youtube, twitch, bio, profile_img){
         this.database.ref('users/' + userId + '/userInfo').set({
             "profile_img" : profile_img,
@@ -38,10 +47,6 @@ class Database{
         let usr = await this.database.ref('users/' + user).once('value');
         let usrData = usr.val();
         return usrData;
-    }
-
-    like(id){
-        
     }
 
     async getClips(){
@@ -59,6 +64,7 @@ class Database{
         try{
             let usr = await this.database.ref('users/' + user).once('value');
             let usrData = usr.val();
+            console.log(usrData);
             return usrData.boosts;
         }catch(e){
             return 0;

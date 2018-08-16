@@ -22,16 +22,16 @@ class EditProfileView{
         this.confirm = document.createElement("button");
         this.confirm.innerHTML = "Save Changes";
 
-        this.div.innerHTML += "Set Profile Image";
+        // this.div.innerHTML += "Set Profile Image";
         this.div.appendChild(this.editImg);
         this.div.appendChild(document.createElement("br"));
-        this.div.innerHTML += "Youtube URL: ";
+        // this.div.innerHTML += "Youtube URL: ";
         this.div.appendChild(this.editYoutube);
         this.div.appendChild(document.createElement("br"));
-        this.div.innerHTML += "Twitch URL: ";
+        // this.div.innerHTML += "Twitch URL: ";
         this.div.appendChild(this.editTwitch);
         this.div.appendChild(document.createElement("br"));
-        this.div.innerHTML += "Bio: ";
+        // this.div.innerHTML += "Bio: ";
         this.div.appendChild(this.editBio);
         this.div.appendChild(document.createElement("br"));
         this.div.appendChild(this.confirm);

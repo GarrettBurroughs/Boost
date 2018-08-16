@@ -12,6 +12,7 @@ class CreateAccountController{
             unRenderEverything();
             let videoGrid = document.getElementById("vidGrid");
             videoGrid.style.display = "flex";
+            // this.createView.getDiv()
         });
     }
 
@@ -24,6 +25,7 @@ class CreateAccountController{
     }
 
     unRender(){
+        console.log("create Deleted");
         this.createView.getDiv().remove();
     }
 }
