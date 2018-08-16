@@ -11,7 +11,10 @@ class UploadController{
             this.database.uploadClip(USER_LOGIN, title, USER_CHANNEL, embed, startTime, USER_IMG);
             alert("Clip Uploaded!");
             upload.unRender();
-            document.getElementById("vidGrid").style.display = "flex";
+            let grid = document.getElementById("vidGrid");
+            grid.style.display = "flex";
+            grid.innerHTML = "";
+            looks();
         });
     }
 
