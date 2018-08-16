@@ -1,23 +1,30 @@
 class EditProfileView{
-    constructor(user){
+    constructor(){
         this.div = document.createElement("div");
         this.div.class = "edit-profile"
 
         this.editYoutube = document.createElement("input");
         this.editYoutube.type = "url";
-        this.editYoutube.placeholder = "paste your youtube URL here"
+        this.editYoutube.placeholder = "paste your youtube URL here";
+
+        this.editImg = document.createElement("input");
+        this.editImg.type = "url";
+        this.editImg.placeholder = "paste your channel img url here";
 
         this.editTwitch = document.createElement("input");
         this.editTwitch.type = "url";
-        this.editTwitch.placeholder = "paste your youtube URL here"
+        this.editTwitch.placeholder = "paste your twitch URL here"
 
         this.editBio = document.createElement("input");
         this.editBio.type = "url";
-        this.editBio.placeholder = "paste your youtube URL here"
+        this.editBio.placeholder = "Tell about yourself!"
 
         this.confirm = document.createElement("button");
         this.confirm.innerHTML = "Save Changes";
 
+        this.div.innerHTML += "Set Profile Image";
+        this.div.appendChild(this.editImg);
+        this.div.appendChild(document.createElement("br"));
         this.div.innerHTML += "Youtube URL: ";
         this.div.appendChild(this.editYoutube);
         this.div.appendChild(document.createElement("br"));
@@ -39,16 +46,18 @@ class EditProfileView{
     }
 
     submit(){
-        console.log(this.editProfilePic.value);
         let test = document.createElement("img");
-        test.src = extractFilename(this.editProfilePic.value);
         this.div.appendChild(test);
+        console.log(this.editImg.value);
         try{
             this.submitAction(
                 this.editYoutube.value,
                 this.editTwitch.value,
-                this.editBio.value            );
+                this.editBio.value, 
+                this.editImg.value
+            );
         }catch(e){
+            console.log(e);
             alert(e);
         }
     }

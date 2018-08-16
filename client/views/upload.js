@@ -2,7 +2,7 @@ class UploadView{
     constructor(){
         this.link = document.createElement("input");
         this.link.class = "upload-input";
-        this.link.placeholder = "Video URL";
+        this.link.placeholder = "Youtube Video ID";
 
         this.startTime = document.createElement("input");
         this.startTime.class = "upload-input";
@@ -14,7 +14,8 @@ class UploadView{
 
         this.uploadButton = document.createElement("button");
         this.uploadButton.innerHTML = "Upload";
-        this.uploadButton.id = "upload-button"
+        this.uploadButton.id = "upload-button";
+
 
         this.div = document.createElement("div");
         this.div.appendChild(this.link);
@@ -39,7 +40,12 @@ class UploadView{
     }
 
     upload(){
-        this.uploadAction(this.link.value, this.startTime.value, this.title.value);
+        try{
+            this.uploadAction(this.link.value, this.startTime.value, this.title.value);
+        }catch(e){
+            console.log(e);
+            alert(e);
+        }
     }
 
     getDiv(){

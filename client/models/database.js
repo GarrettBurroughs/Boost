@@ -3,8 +3,10 @@ class Database{
         this.database = firebase.database();
     }
 
-    getLogin(username){
-
+    async getLogin(username){
+        let usr = await this.database.ref('users/' + username).once('value');
+        let usrData = usr.val();
+        return usrData.password;
     }
 
     createAccount(userId, email, username, password){
@@ -12,30 +14,30 @@ class Database{
             "username": username,
             "email": email,
             "password" : password,
+            "boosts": 0,
             "userInfo" : {
                 "profile_img" : "assets/profile.png",
                 "twitch" : "",
                 "youtube": "",
-                "boosts": 0,
                 "Bio" : "No Bio Set"
             },
             "clips" : []
         });
     }
 
-    async boost(userId){
-        let userData = await this.database.ref("users/" + userId).once("value");
-        console.log(userData);
-        let json = userData.val();
-        console.log(json);
-        json.userInfo.boosts++;
-        this.database.ref("users/" + userId + userInfo).set(json);
+    updateInfo(userId, youtube, twitch, bio, profile_img){
+        this.database.ref('users/' + userId + '/userInfo').set({
+            "profile_img" : profile_img,
+            "twitch" : twitch,
+            "youtube": youtube,
+            "Bio" : bio
+        });
     }
 
-    async getBoosts(userId){
-        let userData = await this.database.ref("users/" + userId).once("value");
-        let json = userData.val();
-        return json.userInfo.boosts;
+    async getUser(user){
+        let usr = await this.database.ref('users/' + user).once('value');
+        let usrData = usr.val();
+        return usrData;
     }
 
     like(id){
@@ -54,10 +56,16 @@ class Database{
     }
 
     async getBoosts(user){
-
+        try{
+            let usr = await this.database.ref('users/' + user).once('value');
+            let usrData = usr.val();
+            return usrData.boosts;
+        }catch(e){
+            return 0;
+        }        
     }
 
-    async uploadClip(userId, title, channelName, videoLink, startTime){
+    async uploadClip(userId, title, channelName, videoLink, startTime, channelImg){
         let clipCount = await this.database.ref('data/').once('value');
         clipCount = clipCount.val().clips;
         console.log(clipCount);
@@ -65,12 +73,12 @@ class Database{
             {clips: clipCount + 1}
         );
         let clip = {
-            "id": 3,
+            "id": clipCount,
             "title": title,
             "userId": userId,
             "channelName": channelName,
             "videoLink": videoLink,
-            "channelImg": "img",
+            "channelImg": channelImg,
             "startTime": startTime  
         }
         const clipKey = this.database.ref().child('clips').push().key;

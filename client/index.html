@@ -21,19 +21,38 @@
             <a href="#">Link 3</a>
             </div>
         </div> -->
-        <img src="https://files.slack.com/files-pri/TBFTZ7C5N-FC8GT1N4A/boost_logo_li__2_.jpg">
+        <button id="home">
+            <img id="logo" src="https://files.slack.com/files-pri/TBFTZ7C5N-FC8GT1N4A/boost_logo_li__2_.jpg">
+        </button>
         <div id="searchBar">
             <input type="text" id="searchInput" placeholder="Search...">
-            <button id="sumbitButton">
-                Submit
+            <button id="submitButton">
+                <img src="https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.pn">
+            </button>
+        </div>
+        <div id="buttonBox">
+            <button id="upload">
+                Upload
+            </button>
+            <button id="messages">
+                Messages
+            </button>
+            <button id="notifications">
+                Notifications
+            </button>
+        </div>
+        <div id ="accountStuf"> 
+            <button id = "accountButton">
+                Sign Up Sign In
+            </button>
+            <button id="accountLink">
+                <img id="profilePic" src="https://i.kym-cdn.com/profiles/icons/big/000/189/880/villager.JPG">
             </button>
         </div>
     </div>
     <div id="main_container">
-        <div id= "vidGrid"></div>
-    </div>
-        <script src="https://apis.google.com/js/platform.js"></script>
-
+        
+    <script src="https://apis.google.com/js/platform.js"></script>
     <script src="https://apis.google.com/js/platform.js" defer></script>
     <script src="bcrypt.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
@@ -53,9 +72,8 @@
 
     <script src="models/database.js"></script>
 
-    <script src="views/data.js" defer></script>
     <script src="views/index.js" defer></script>
-    
+    <script src="views/data.js" defer></script>
     <script src="views/editProfile.js"></script>
     <script src="views/login.js"></script>
     <script src="views/profile.js"></script>
@@ -66,5 +84,7 @@
     <script src= "controllers/upload.js"></script>    
     <script src= "controllers/createAccount.js"></script>
     <script src= "controllers/login.js"></script>
+    <script src= "controllers/editProfile.js"></script>
+
 </body>
 </html>

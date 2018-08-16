@@ -15,11 +15,11 @@ class CreateAccountController{
         return bcrypt.hashSync(password, 8);
     }
 
-    render(){
-        document.querySelector("body").appendChild(this.createView.getDiv());
+    render(element){
+        element.appendChild(this.createView.getDiv());
     }
 
     unRender(){
-        this.createView.getDiv().delete();
+        this.createView.getDiv().remove();
     }
 }

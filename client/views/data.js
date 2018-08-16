@@ -35,12 +35,36 @@ let myJson = [
 
 
 let db = new Database();
-myJson = db.getClips();
+console.log(myJson);
+looks();
+db.getClips().then((d) => {
+    myJson = d;
+    looks();
+});
 
 
-function looks(){
-    let grid = document.getElementById("vidGrid");
-    grid.id = "grid"
+    
+let signIn = document.getElementById("accountButton");
+let createDiv = document.createElement("div");
+document.querySelector('body').appendChild(createDiv);
+
+signIn.onclick = function(){
+    createDiv.id = "accountSetup";
+    accountCreation.render(createDiv);
+    login.render(createDiv);
+    document.getElementById("vidGrid").style.display = "none";
+    document.querySelector('body').appendChild(createDiv);
+};
+
+async function looks(){
+    let grid;
+    if(document.getElementById("vidGrid")){
+        grid = document.getElementById("vidGrid")
+    }else{
+        grid = document.createElement("div");
+        grid.setAttribute("id", "vidGrid");
+    }
+    
     let main_container = document.getElementById("main_container");
     main_container.appendChild(grid);
     for (i=0; i<myJson.length; i++){
@@ -83,14 +107,16 @@ function looks(){
                     chaName.className = "chaName";
                     deetsText.appendChild(chaName);
 
-                //buttons
-                let buttons = document.createElement("div");
-                content.appendChild(buttons);
-                buttons.className = "buttons"
+                    //buttons
+                    let buttons = document.createElement("div");
+                    content.appendChild(buttons);
+                    buttons.className = "buttons"
                     
                     //Boost Button
                     let boostButton = document.createElement("button");
-                    boostButton.innerHTML = db.getBoosts(myJson[i].userId);
+                    db.getBoosts(myJson[i].userId).then((d) => {
+                        boostButton.innerHTML = d;
+                    });
                     boostButton.className = "boostButton", "allButtons";
                     boostButton.onclick = function(){
                         db.boost(myJson[i].userId);
@@ -98,20 +124,27 @@ function looks(){
 
                     //Bounce Button
                     let bounceButton = document.createElement("button");
-                    bounceButton.className = "bounceButton", "allButtons"
+                    bounceButton.className = "bounceButton", "allButtons";
+                    bounceButton.innerHTML = "Bounce";
                     
                     //Subscribe Button
                     console.log("Creating sub butt")
                     let subscribeButton = document.createElement("div");
-                    let subscriberCount = myJson[i].subscriberCount;
                     subscribeButton.className = "g-ytsubscribe", "allButtons";
-                    console.log(subscribeButton)
+                    console.log(subscribeButton);
                     if(myJson[i].channelId.length <= 20){
                         subscribeButton.setAttribute("data-channel",myJson[i].channelId)
                     }else{
                         subscribeButton.setAttribute("data-channelid",myJson[i].channelId)
                     }
-                    console.log(subscribeButton)
+                    // console.log(gapi)
+                    // gapi.ytsubscribe.render(subscribeButton, {"channel" : "GoogleDevelopers"});
+
+
+                    // subscribeButton.setAttribute("data-gapiscan", true);
+                    // subscribeButton.setAttribute("data-onload", true);
+                    // subscribeButton.setAttribute("data-gapistub", true);
+                    console.log(subscribeButton);
                     //Redirect Button
                     let redirectButton = document.createElement("button");
                     redirectButton.className = "redirectButton", "allButtons"
@@ -120,8 +153,6 @@ function looks(){
                     buttons.appendChild(bounceButton);
                     buttons.appendChild(subscribeButton);
                     buttons.appendChild(redirectButton);
-        
-                
         /* let content = document.createElement("div");
         let p = createElement("p");
         p.innerHTML = myJson[i].title;
@@ -143,6 +174,7 @@ function looks(){
 
         //page.appendChild(video1);
     }
+    gapi.ytsubscribe.go(grid);
 }
 
-looks();
+//looks();

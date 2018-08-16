@@ -1,20 +1,29 @@
-class LoginView{
+    class LoginView{
     constructor(){
-        this.username = "hi";
-        this.password =  "gart";
+        this.username = "";
+        this.password =  "";
         this.loginAction;
-
         this.div = document.createElement("div");
         this.div.id = "logInLooks";
+        this.accountBeginning = document.createElement("div");
+        this.accountBeginning.appendChild(this.div);
         this.usernameInput = document.createElement("input");
         this.usernameInput.type = "text";
         this.usernameInput.id = "username";
+        this.usernameInput.placeholder = "username";
         this.passwordInput = document.createElement("input");
-        this.passwordInput.type = "text";
+        this.passwordInput.type = "password";
         this.passwordInput.id = "password";
+        this.passwordInput.placeholder = "password"
         this.loginButton = document.createElement("button");
         this.loginButton.id = "login"
         this.loginButton.innerHTML = "login";
+
+        // Title
+        this.title = document.createElement("h1");
+        this.title.innerHTML = "Log In"
+        
+        this.div.appendChild(this.title);
         this.div.appendChild(this.usernameInput);
         this.div.appendChild(document.createElement("br"));
         this.div.appendChild(this.passwordInput);
@@ -25,12 +34,6 @@ class LoginView{
     }
 
 
-
-    hashPassword(password){
-        console.log(password);
-        return bcrypt.hashSync(password, 8);
-    }
-
     setLoginAction(action){
         this.loginAction = action;
     }
@@ -38,9 +41,12 @@ class LoginView{
     login(){
         this.username = this.usernameInput.value;
         this.password = this.passwordInput.value;
-        hash = this.password = this.hashPassword(this.password);
-        console.log(this.username, this.password);
-        this.loginAction(this.username, this.password);
+        try{
+            this.loginAction(this.username, this.password);
+        }catch(e){
+            consle.log(e);
+            alert(e);
+        }
     }
 
     getDiv(){

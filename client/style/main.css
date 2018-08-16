@@ -1,17 +1,51 @@
-#navBar {
-    display:flex;
-    background-color: black;
-    color: rgb(226, 208, 103);
-    justify-content: center;
-    align-items: center;
+body {
+    margin:0;
+    background-color: white;
 }
 
-#navBar img {
-    height: 180px;
+#navBar {
+    display:flex;
+    background-color: rgb(73, 117, 158);
+    color: rgb(226, 208, 103);
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    height: 100px;
+}
+
+#main_container {
+    background-color: rgb(123, 45, 168);
+}
+
+#logo {
+    height: 80px;
+    margin-left: 20px;
+    border-radius: 80%;
+}
+
+#upload {
+    font-size: 20px;
+    background-color: rgb(73, 117, 158);
+    color: white;
+    border: none;
+}
+
+#messages {
+    font-size: 20px;
+    background-color: rgb(73, 117, 158);
+    color: white;
+    border: none;
+}
+
+#notifications {
+    font-size: 20px;
+    background-color: rgb(73, 117, 158);
+    color: white;
+    border: none;
 }
 
 .dropdown {
-    border: 4px solid rgbrgb(29, 4, 49);
+    border: 4px solid rgb(73, 117, 158);
     border-radius: 20px;
 }
 
@@ -67,12 +101,13 @@
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
-#grid {
+#vidGrid {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-left: 50px;
     margin-right: 50px;
+    background-color: rgb(123, 45, 168)
 }
 
 .content {
@@ -80,7 +115,7 @@
     padding: 20px;
     margin: 20px;
     width: 23%; 
-    background-color: rgb(29, 4, 49);
+    background-color: rgb(73, 117, 158);
     color: white;
     
 }
@@ -121,4 +156,98 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.allButtons {
+    width: 10px;
+}
+
+#searchBar {
+    display: flex;
+}
+
+#searchInput {
+    background-color: white;
+    color: rgb(73, 117, 158);
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    font-size: 20px;
+    margin-right: 0px;   
+}
+
+#submitButton img{
+width: 10px;
+height: 10px;
+margin-left: 0px;    
+}
+
+#accountStuf {
+   display: flex;
+   align-items: center;
+   height: 85px;
+   width: 200px;
+   justify-content: space-between;
+   margin-right: 30px;
+}
+
+#accountLink {
+    background-color: rgb(73, 117, 158);
+    border: none;
+    height: 100px;
+}
+
+#accountButton {
+    height: 60px;
+
+    border-width: 3px; 
+    font-size: 20px;
+    width:200px;
+    background-color: rgb(73, 117, 158);
+    border: none;
+    color: white;
+}
+
+#profilePic {
+    width: 85px;
+    height: 85px;
+    margin: 6px;
+    border: none;
+    border-radius: 50%;
+}
+
+#accountSetup{
+    display: flex;
+    flex-direction: row;   
+    justify-content: center;
+    align-items: center;
+    height: 80vh;    
+}
+
+#createAccountLooks{
+border: 1px;
+margin-right:119px;
+display: inline;
+border-width: 4px;
+border-color: black;
+}
+
+#createAccountLooks input{
+    font-size: 20px;
+}
+
+#logInLooks{
+display: inline;
+border-width: 4px;
+border-color: black;
+}
+
+#logInLooks input{
+    font-size:20px;
+}
+
+#logInLooks h1{
+    margin-top:0px;
+    margin-bottom:52px;
 }
