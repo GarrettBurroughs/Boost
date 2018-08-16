@@ -1,52 +1,64 @@
+::placeholder {
+    color:white;
+}
+
 body {
     margin:0;
-    background-color: white;
 }
 
 #navBar {
     display:flex;
-    background-color: rgb(73, 117, 158);
+    background-color: rgba(23, 137, 178, 1);
     color: rgb(226, 208, 103);
     justify-content: space-between;
     align-items: center;
     margin: 0px;
     height: 100px;
+    border-style:groove;
+    border-width: 3px;
 }
 
 #main_container {
-    background-color: rgb(123, 45, 168);
+    background-color: rgba(23, 137, 178, 1);
+}
+
+#home {
+    background-color: rgba(23, 137, 178, 1);
+    border:rgba(23, 137, 178, 1);
 }
 
 #logo {
     height: 80px;
-    margin-left: 20px;
+    margin: 0px;
     border-radius: 80%;
+
 }
 
 #upload {
     font-size: 20px;
-    background-color: rgb(73, 117, 158);
+    background-color: rgba(23, 137, 178, 1);
     color: white;
     border: none;
 }
 
 #messages {
     font-size: 20px;
-    background-color: rgb(73, 117, 158);
+    background-color: rgba(23, 137, 178, 1);
     color: white;
     border: none;
 }
 
-#notifications {
+#find {
     font-size: 20px;
-    background-color: rgb(73, 117, 158);
+    background-color: rgba(23, 137, 178, 1);
     color: white;
     border: none;
 }
 
 .dropdown {
-    border: 4px solid rgb(73, 117, 158);
+    border: 4px solid rgba(23, 137, 178, 1);
     border-radius: 20px;
+    margin-left: 10px;
 }
 
 .dropdownLines {
@@ -105,19 +117,20 @@ body {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-left: 50px;
-    margin-right: 50px;
-    background-color: rgb(123, 45, 168)
+    background-image: url("https://emerging-europe.com/wp-content/uploads/2017/10/bigstock-178684213-990x556.jpg");
+    background-size: 100% 100%;
+    margin:0;
+    padding: 0px;
 }
 
 .content {
-    border-bottom: 2px solid black;
+    border-radius: 8px;
     padding: 20px;
     margin: 20px;
     width: 23%; 
-    background-color: rgb(73, 117, 158);
+    background: linear-gradient(to bottom, rgba(23, 137, 178, .8) 0%,rgba(255,255,255,0) 100%);
     color: white;
-    
+    font-family: 'Raleway', sans-serif;    
 }
 
 .content img {
@@ -168,7 +181,7 @@ body {
 
 #searchInput {
     background-color: white;
-    color: rgb(73, 117, 158);
+    color: rgba(23, 137, 178, 1);
     border-radius: 4px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -193,18 +206,18 @@ margin-left: 0px;
 }
 
 #accountLink {
-    background-color: rgb(73, 117, 158);
+    background-color: rgba(23, 137, 178, 1);
     border: none;
     height: 100px;
 }
 
 #accountButton {
     height: 60px;
-
+    font-family: 'Do Hyeon', sans-serif;
     border-width: 3px; 
     font-size: 20px;
     width:200px;
-    background-color: rgb(73, 117, 158);
+    background-color: rgba(23, 137, 178, 1);
     border: none;
     color: white;
 }
@@ -223,31 +236,81 @@ margin-left: 0px;
     justify-content: center;
     align-items: center;
     height: 80vh;    
+    background-image: url("https://emerging-europe.com/wp-content/uploads/2017/10/bigstock-178684213-990x556.jpg");
 }
 
 #createAccountLooks{
 border: 1px;
 margin-right:119px;
-display: inline;
-border-width: 4px;
-border-color: black;
+display: flex;
+flex-direction: column;
+background-color: rgba(23, 137, 178, 1);
+height: 300px;
 }
 
 #createAccountLooks input{
     font-size: 20px;
+    color: white;
+    background-color: rgba(23, 137, 178, 1);
+    border: 3px solid white;
 }
 
 #logInLooks{
 display: inline;
 border-width: 4px;
-border-color: black;
+border: 3px solid white;
+height: 300px;
+p
 }
 
 #logInLooks input{
     font-size:20px;
+    color: white;
+    background-color: rgba(23, 137, 178, 1);
+    border: 3px solid white;    
 }
 
 #logInLooks h1{
     margin-top:0px;
     margin-bottom:52px;
+}
+
+#topLeft {
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+
+.edit-profile{
+    margin-left: 55vh;
+    margin-top: 30vh;
+    padding: 5px;
+    color: white;
+    background-color: rgba(23, 137, 178, 1);
+    border: 3px solid black;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;        
+}
+
+.edit-profile input{
+    font-size: 20px;
+    background-color: rgba(23, 137, 178, 1);
+    color: white;
+}
+
+#upload{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 33px;
+}
+
+#messages{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 33px;
+}
+
+#find{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 33px;
 }

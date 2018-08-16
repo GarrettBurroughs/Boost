@@ -1,7 +1,7 @@
 class EditProfileView{
     constructor(){
         this.div = document.createElement("div");
-        this.div.class = "edit-profile"
+        this.div.classList = "edit-profile"
 
         this.editYoutube = document.createElement("input");
         this.editYoutube.type = "url";
@@ -16,8 +16,8 @@ class EditProfileView{
         this.editTwitch.placeholder = "paste your twitch URL here"
 
         this.editBio = document.createElement("input");
-        this.editBio.type = "url";
-        this.editBio.placeholder = "Tell about yourself!"
+        this.editBio.type = "text";
+        this.editBio.placeholder = "Tell about yourself!";
 
         this.confirm = document.createElement("button");
         this.confirm.innerHTML = "Save Changes";
@@ -29,10 +29,10 @@ class EditProfileView{
         this.div.appendChild(this.editYoutube);
         this.div.appendChild(document.createElement("br"));
         this.div.innerHTML += "Twitch URL: ";
-        this.div.appendChild(this.editYoutube);
+        this.div.appendChild(this.editTwitch);
         this.div.appendChild(document.createElement("br"));
         this.div.innerHTML += "Bio: ";
-        this.div.appendChild(this.editYoutube);
+        this.div.appendChild(this.editBio);
         this.div.appendChild(document.createElement("br"));
         this.div.appendChild(this.confirm);
 
@@ -46,9 +46,11 @@ class EditProfileView{
     }
 
     submit(){
-        let test = document.createElement("img");
-        this.div.appendChild(test);
+
         console.log(this.editImg.value);
+        console.log(this.editYoutube.value);
+        console.log(this.editTwitch.value);
+        console.log(this.editBio.value);
         try{
             this.submitAction(
                 this.editYoutube.value,

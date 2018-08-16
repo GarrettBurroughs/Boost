@@ -145,14 +145,13 @@ async function looks(){
                     // subscribeButton.setAttribute("data-onload", true);
                     // subscribeButton.setAttribute("data-gapistub", true);
                     console.log(subscribeButton);
-                    //Redirect Button
-                    let redirectButton = document.createElement("button");
-                    redirectButton.className = "redirectButton", "allButtons"
+                    
+                    
                                         
                     buttons.appendChild(boostButton);
                     buttons.appendChild(bounceButton);
                     buttons.appendChild(subscribeButton);
-                    buttons.appendChild(redirectButton);
+                    
         /* let content = document.createElement("div");
         let p = createElement("p");
         p.innerHTML = myJson[i].title;

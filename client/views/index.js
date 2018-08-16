@@ -15,6 +15,7 @@ uploadButton.addEventListener('click', () => {
     console.log("clicked");
     let videoGrid = document.getElementById("vidGrid");
     videoGrid.style.display = "none";
+    unRenderEverything();
     upload.render(body);
 });
 
@@ -24,6 +25,7 @@ account.addEventListener('click', () => {
     console.log("clicked");
     let videoGrid = document.getElementById("vidGrid");
     videoGrid.style.display = "none";
+    unRenderEverything();
     editAccount.render(body);
 });
 
@@ -32,6 +34,10 @@ homeButton.addEventListener('click', () => {
     let videoGrid = document.getElementById("vidGrid");
     videoGrid.style.display = "flex";
     console.log(videoGrid);
+    unRenderEverything();
+});
+
+function unRenderEverything(){
     try{
         upload.unRender();
     }catch{}
@@ -44,4 +50,12 @@ homeButton.addEventListener('click', () => {
     try{
         login.unRender();
     }catch{}
+}
+
+const database = new Database();
+const findNew = document.getElementById("find");
+findNew.addEventListener('click', () => {
+    let clips = database.getClips();
+    let randomClip = clips[Math.floor(Math.random() *  clips.length)];
+    
 });

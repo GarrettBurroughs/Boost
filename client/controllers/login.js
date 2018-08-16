@@ -13,7 +13,8 @@ class LoginController {
                 let user = await this.database.getUser(username);
                 login.unRender();
                 console.log(user);
-                USER_LOGIN = true;
+                LOGGED_IN = true;
+                USER_LOGIN = username;
                 USER_CHANNEL = user.userInfo.youtube;
                 USER_IMG = user.userInfo.profile_img;
 

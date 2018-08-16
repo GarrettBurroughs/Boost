@@ -76,7 +76,8 @@ class Database{
             "id": clipCount,
             "title": title,
             "userId": userId,
-            "channelName": channelName,
+            "channelName": userId,
+            "channelId" : channelName,
             "videoLink": videoLink,
             "channelImg": channelImg,
             "startTime": startTime  
