@@ -9,10 +9,6 @@ class CreateAccountController{
             let userId = username;
             this.data.createAccount(userId, email, username, this.hashPassword(password));
             alert("Account Created");
-            unRenderEverything();
-            let videoGrid = document.getElementById("vidGrid");
-            videoGrid.style.display = "flex";
-            // this.createView.getDiv()
         });
     }
 
