@@ -117,7 +117,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-image: url("https://emerging-europe.com/wp-content/uploads/2017/10/bigstock-178684213-990x556.jpg");
+    background-color: #3361bd;
     background-size: 100% 100%;
     margin:0;
     padding: 0px;
